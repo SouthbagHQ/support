@@ -47,24 +47,12 @@ export default function Footer() {
           </div>
         )}
         {shenanigans.ENABLE &&
-          Array(100)
+          Array(30)
             .fill(null)
             .map((_, index) => (
               <>
                 {/*eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text*/}
                 <img src={`/images/${index + 1}.png`} className="w-10 h-10" />
-              </>
-            ))}
-        {shenanigans.ENABLE &&
-          Array(1000)
-            .fill(null)
-            .map((_, index) => (
-              <>
-                {/*eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text*/}
-                <img
-                  src={`/images/${index + 1}.png`}
-                  className="w-10 h-10 hidden"
-                />
               </>
             ))}
         <div className="flex justify-between items-center">
