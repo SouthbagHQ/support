@@ -8,7 +8,7 @@ export default function TitleSetter() {
   useEffect(() => {
     setTimeout(() => {
       setInterval(() => {
-        document.title = "Service Table";
+        document.title = "Southbag support powered by service table";
       }, 1);
     }, 100);
   }, []);

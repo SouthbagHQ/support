@@ -62,8 +62,8 @@ export default function SignupPage() {
         !password.toLowerCase().includes("7"),
     },
     {
-      text: 'Password must contain "gork"',
-      check: (password: string) => password.toLowerCase().includes("gork"),
+      text: 'Password must contain "kevin"',
+      check: (password: string) => password.toLowerCase().includes("kevin"),
     },
     {
       text: "Password cannot contain the word 'password'",

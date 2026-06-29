@@ -24,7 +24,7 @@ export default function Home() {
       transition={{ duration: 2, ease: "linear" }}
     >
       <HeroDiv>
-        <h1>Welcome to Service Table</h1>
+        <h1>Welcome to Southbag support powered by service table</h1>
         <h1>How can we help you</h1>
         <SearchBox />
         <a href="/createticket">Create a support ticket</a>
@@ -81,12 +81,12 @@ export default function Home() {
         </div>
       </div>
       <h1>About</h1>
-      <h2>Support for Failsforce Service Table</h2>
+      <h2>Support for Southbag powered by service table</h2>
 
       <div className="w-screen p-4 bg-blue-100 rounded-full relative z-10">
         {/*Start AI generated*/}
         <p>
-          Welcome to the Failsforce Service Table support site—your central
+          Welcome to Southbag support powered by service table—your central
           place for help, guidance, and practical answers for using the platform
           day to day. Whether you’re setting things up for the first time,
           standardising workflows across teams, integrating with existing
@@ -104,7 +104,7 @@ export default function Home() {
 
         <ul>
           <li>
-            Learn the basics: key concepts, terminology, and how Service Table
+            Learn the basics: key concepts, terminology, and how Southbag support
             fits into your process
           </li>
           <li>
@@ -152,7 +152,7 @@ export default function Home() {
         <h2>Workflows, templates, and best practices</h2>
 
         <p>
-          Failsforce Service Table works best when processes are consistent and
+          Southbag support powered by service table works best when processes are consistent and
           repeatable. That’s why we include templates, recommended patterns, and
           practical examples you can adapt to your team. Expect guidance on safe
           changes, rollout approaches, and the operational habits that prevent
@@ -176,7 +176,7 @@ export default function Home() {
           This support experience is designed to improve continuously. If
           something is unclear, missing, or outdated—or if you had to work too
           hard to get an answer—tell us. Your feedback helps us improve
-          guidance, keep references current, and make Failsforce Service Table
+          guidance, keep references current, and make Southbag support powered by service table
           easier to use over time.
         </p>
 
