@@ -24,7 +24,7 @@ export default function Home() {
       transition={{ duration: 2, ease: "linear" }}
     >
       <HeroDiv>
-        <h1>Welcome to Service Table</h1>
+        <h1>Welcome to Southbag Support</h1>
         <h1>How can we help you</h1>
         <SearchBox />
         <a href="/createticket">Create a support ticket</a>
@@ -81,14 +81,14 @@ export default function Home() {
         </div>
       </div>
       <h1>About</h1>
-      <h2>Support for Failsforce Service Table</h2>
+      <h2>Southbag Support powered by Service Table</h2>
 
       <div className="w-screen p-4 bg-blue-100 rounded-full relative z-10">
         {/*Start AI generated*/}
         <p>
-          Welcome to the Failsforce Service Table support site—your central
-          place for help, guidance, and practical answers for using the platform
-          day to day. Whether you’re setting things up for the first time,
+          Welcome to the Southbag Support site, powered by Service Table—your
+          central place for help, guidance, and practical answers for using the
+          platform day to day. Whether you’re setting things up for the first time,
           standardising workflows across teams, integrating with existing
           systems, or troubleshooting something urgent, this site is built to
           help you get from “stuck” to “solved” with minimal friction and
@@ -104,8 +104,8 @@ export default function Home() {
 
         <ul>
           <li>
-            Learn the basics: key concepts, terminology, and how Service Table
-            fits into your process
+            Learn the basics: key concepts, terminology, and how Southbag
+            Support fits into your process
           </li>
           <li>
             Configure with confidence: permissions, settings, and recommended
@@ -152,7 +152,7 @@ export default function Home() {
         <h2>Workflows, templates, and best practices</h2>
 
         <p>
-          Failsforce Service Table works best when processes are consistent and
+          Southbag Support works best when processes are consistent and
           repeatable. That’s why we include templates, recommended patterns, and
           practical examples you can adapt to your team. Expect guidance on safe
           changes, rollout approaches, and the operational habits that prevent
@@ -176,7 +176,7 @@ export default function Home() {
           This support experience is designed to improve continuously. If
           something is unclear, missing, or outdated—or if you had to work too
           hard to get an answer—tell us. Your feedback helps us improve
-          guidance, keep references current, and make Failsforce Service Table
+          guidance, keep references current, and make Southbag Support
           easier to use over time.
         </p>
 

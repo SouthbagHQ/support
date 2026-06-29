@@ -57,8 +57,8 @@ export default function Footer() {
             ))}
         <div className="flex justify-between items-center">
           <div className="text-sm">
-            &copy; {new Date().getFullYear()} Service Table. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Southbag Support powered by
+            Service Table. All rights reserved.
           </div>
           <div className="text-sm">
             <a

@@ -83,7 +83,7 @@ function AIChat() {
                       </p>
                     </motion.div>
                   );
-                if (part.type == "tool-delegateToGork")
+                if (part.type == "tool-delegateToKevin")
                   return (
                     <motion.div
                       className="border w-fit rounded-full"

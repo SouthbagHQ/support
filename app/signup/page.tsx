@@ -52,8 +52,8 @@ export default function SignupPage() {
         /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
     },
     {
-      text: "Password must not contain the letter e",
-      check: (password: string) => !password.toLowerCase().includes("e"),
+      text: "Password must not contain the letter g",
+      check: (password: string) => !password.toLowerCase().includes("g"),
     },
     {
       text: "Password must not contain 6 or 7",
@@ -62,8 +62,8 @@ export default function SignupPage() {
         !password.toLowerCase().includes("7"),
     },
     {
-      text: 'Password must contain "gork"',
-      check: (password: string) => password.toLowerCase().includes("gork"),
+      text: 'Password must contain "kevin"',
+      check: (password: string) => password.toLowerCase().includes("kevin"),
     },
     {
       text: "Password cannot contain the word 'password'",

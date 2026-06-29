@@ -1,4 +1,4 @@
-# [Service Table](https://servicetable.ingo.au/)
+# [Southbag Support powered by Service Table](https://servicetable.ingo.au/)
 [servicetable.ingo.au](https://servicetable.ingo.au/)
 
 This is a joke service desk webapp, made to be very not user friendly
@@ -7,10 +7,10 @@ This is a joke service desk webapp, made to be very not user friendly
 
 ## How to get the most out of this
 * Try the AI—ask it a support question or something
-* Consult the AI about how it really feels about gork
+* Consult the AI about how it really feels about Kevin
 * Consult the AI about existence
 * Create an account (I seriously won't sell your data, and it's just stored in a Neon DB and not sent anywhere else)
-* Try using the password `Gork123!` (which is my password) to sign up for an account
+* Try using the password `Kevin123!` (which is my password) to sign up for an account
 * Do a password reset (you can use `me@ingo.au`)
 * Submit feedback (ok fine you cant)
 * Try and create a ticket

@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Create Next App",
+  title: "Southbag Support powered by Service Table",
 };
 
 export default function RootLayout({

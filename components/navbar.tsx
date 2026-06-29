@@ -41,11 +41,13 @@ export default function Navbar() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element*/}
         <img
-          src="/download.jpeg"
-          alt="Logo"
+          src="https://banking.southbag.cc/logo.png"
+          alt="Southbag logo"
           className="size-14 aspect-square"
         />
-        <h2 className="text-blue-500">Failsforce Service Table</h2>
+        <h2 className="text-blue-500">
+          Southbag Support powered by Service Table
+        </h2>
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/">Home</a>
         <AIButton variant="expanded" text="Now with AI" />
