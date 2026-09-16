@@ -5,6 +5,7 @@ import { AIButton } from "./ai-button";
 import { animate } from "animejs";
 import { useEffect, useRef } from "react";
 import * as shenanigans from "./shenanigans";
+import { track } from "@/lib/palantir";
 
 export default function SearchBox({ className }: { className?: string }) {
   const formRef = useRef<HTMLFormElement>(null);
@@ -37,6 +38,8 @@ export default function SearchBox({ className }: { className?: string }) {
         // @ts-ignore
         onClick={(e) => {
           shenanigans.onClick(e);
+          const query = (formRef.current?.elements.namedItem("query") as HTMLInputElement | null)?.value ?? "";
+          track("support_search_submitted", { query, query_length: query.length });
           formRef.current?.submit();
         }}
       />

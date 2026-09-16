@@ -13,7 +13,10 @@ export default function LogoutPage() {
         actions={[
           {
             content: "Log In First",
-            onClick: () => (location.href = "/login"),
+            onClick: () => {
+              posthog.capture("support_logout_login_first_clicked");
+              location.href = "/login";
+            },
           },
         ]}
       />

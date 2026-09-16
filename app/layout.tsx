@@ -12,6 +12,7 @@ import SessionTerminator from "@/components/session-terminator";
 import Script from "next/script";
 import CookieBanner from "@/components/cookiebanner";
 import Newsletter from "@/components/newsletter";
+import PalantirIdentity from "@/components/palantir-identity";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({
                 <div key={index}></div>
               ))}
           </div>
+          <PalantirIdentity />
           <Shenanigans />
           <SessionTerminator />
           <Fab

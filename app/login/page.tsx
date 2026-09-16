@@ -67,7 +67,7 @@ export default function SignupPage() {
           className="p-2 rounded-full"
           onClick={async () => {
             setLoading(true);
-            const { error } = await authClient.signIn.username({
+            const { data, error } = await authClient.signIn.username({
               username,
               password,
             });
@@ -78,10 +78,15 @@ export default function SignupPage() {
                 error_message: error.message,
               });
             } else {
-              // Identify user in PostHog
-              posthog.identify(username, {
-                username: username,
-              });
+              // Identify by the stable user id; the username is a person property.
+              if (data?.user) {
+                posthog.identify(data.user.id, {
+                  support_username: username,
+                  email: data.user.email,
+                  name: data.user.name,
+                  support_account: true,
+                });
+              }
               // Capture successful login event
               posthog.capture("user_signed_in", {
                 username: username,

@@ -159,7 +159,7 @@ export default function SignupPage() {
               }
             }
             setLoading(true);
-            const { error } = await authClient.signUp.email({
+            const { data, error } = await authClient.signUp.email({
               email,
               username,
               password,
@@ -172,11 +172,14 @@ export default function SignupPage() {
                 error_message: error.message,
               });
             } else {
-              // Identify user in PostHog
-              posthog.identify(username, {
-                username: username,
-                email: email,
-              });
+              // Identify by the stable user id; the username is a person property.
+              if (data?.user) {
+                posthog.identify(data.user.id, {
+                  support_username: username,
+                  email: email,
+                  support_account: true,
+                });
+              }
               // Capture successful signup event
               posthog.capture("user_signed_up", {
                 username: username,

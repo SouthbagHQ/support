@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/palantir";
 import { Editor } from "@tinymce/tinymce-react";
 import { useState } from "react";
 import Error from "./error";
@@ -39,6 +40,7 @@ export default function Footer() {
             />
             <button
               onClick={() => {
+                track("support_feedback_submitted");
                 setSubmitted(true);
               }}
             >
@@ -64,6 +66,7 @@ export default function Footer() {
             <a
               href="https://github.com/ingoau/service-table"
               className="hover:underline"
+              onClick={() => track("support_github_clicked")}
             >
               GitHub
             </a>

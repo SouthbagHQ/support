@@ -13,6 +13,7 @@ import { useGSAP } from "@gsap/react";
 import { Button as ShadcnButton } from "./ui/button";
 import { authClient } from "@/lib/auth-client";
 import * as shenanigans from "./shenanigans";
+import { track } from "@/lib/palantir";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
@@ -55,6 +56,7 @@ export default function Navbar() {
         <AntdButton
           onClick={(e) => {
             shenanigans.onClick(e);
+            track("support_nav_menu_opened", { menu: "documentation" });
             setDocumentationMenuOpen(true);
           }}
         >
@@ -63,6 +65,7 @@ export default function Navbar() {
         <AntdButton
           onClick={(e) => {
             shenanigans.onClick(e);
+            track("support_nav_menu_opened", { menu: "resources" });
             setResourcesMenuOpen(true);
           }}
         >
@@ -73,6 +76,7 @@ export default function Navbar() {
           variant="outline"
           onClick={(e) => {
             shenanigans.onClick(e);
+            track("support_nav_clicked", { target: "create_ticket" });
             location.href = "/createticket";
           }}
         >
@@ -83,6 +87,7 @@ export default function Navbar() {
             Logged in as {session.data?.user.name}
             <button
               onClick={async () => {
+                track("support_delete_account_clicked");
                 await authClient.deleteUser();
               }}
             >
@@ -95,6 +100,7 @@ export default function Navbar() {
               className="cursor-pointer"
               onClick={(e) => {
                 shenanigans.onClick(e);
+                track("support_nav_clicked", { target: "signup" });
                 location.href = "/signup";
               }}
             >
@@ -104,6 +110,7 @@ export default function Navbar() {
               className="cursor-pointer"
               onClick={(e) => {
                 shenanigans.onClick(e);
+                track("support_nav_clicked", { target: "login" });
                 location.href = "/login";
               }}
             >
@@ -114,6 +121,7 @@ export default function Navbar() {
         <button
           onClick={(e) => {
             shenanigans.onClick(e);
+            track("support_nav_clicked", { target: "logout" });
             location.href = "/logout";
           }}
         >
@@ -125,6 +133,7 @@ export default function Navbar() {
           aria-checked={true}
           onClick={(e) => {
             shenanigans.onClick(e);
+            track("support_theme_toggled", { to: theme === "light" ? "dark" : "light" });
             setTheme(theme === "light" ? "dark" : "light");
           }}
           variant="contained"
@@ -167,6 +176,7 @@ export default function Navbar() {
             <button
               onClick={(e) => {
                 shenanigans.onClick(e);
+                track("support_nav_menu_closed", { menu: "documentation" });
                 setDocumentationMenuOpen(false);
               }}
             >
@@ -191,15 +201,26 @@ export default function Navbar() {
               <h1>Resources Menu</h1> <AIButton />
             </div>
             <div className="flex flex-col gap-2 py-4">
-              <a href="https://downloadmoreram.com/">
+              <a
+                href="https://downloadmoreram.com/"
+                onClick={() => track("support_resource_clicked", { resource: "download_ram" })}
+              >
                 Download RAM because its too expensive
               </a>
-              <a href="https://www.opera.com/gx">Download virus</a>
-              <a href="/ai">AI</a>
+              <a
+                href="https://www.opera.com/gx"
+                onClick={() => track("support_resource_clicked", { resource: "download_virus" })}
+              >
+                Download virus
+              </a>
+              <a href="/ai" onClick={() => track("support_resource_clicked", { resource: "ai" })}>
+                AI
+              </a>
             </div>
             <button
               onClick={(e) => {
                 shenanigans.onClick(e);
+                track("support_nav_menu_closed", { menu: "resources" });
                 setResourcesMenuOpen(false);
               }}
             >

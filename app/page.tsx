@@ -1,6 +1,7 @@
 "use client";
 
 import { AIButton } from "@/components/ai-button";
+import { track } from "@/lib/palantir";
 import Loading from "@/components/loading";
 import SearchBox from "@/components/searchbox";
 import styled from "@emotion/styled";
@@ -27,7 +28,7 @@ export default function Home() {
         <h1>Welcome to Service Table</h1>
         <h1>How can we help you</h1>
         <SearchBox />
-        <a href="/createticket">Create a support ticket</a>
+        <a href="/createticket" onClick={() => track("support_home_cta_clicked", { target: "create_ticket" })}>Create a support ticket</a>
         or
         <div>
           <AIButton />

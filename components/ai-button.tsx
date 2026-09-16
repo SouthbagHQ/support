@@ -22,6 +22,9 @@ export function AIButton({
   variant = "expanded",
   text = "Ask AI",
   onClick = () => {
+    import("posthog-js").then(({ default: posthog }) =>
+      posthog.capture("support_ai_button_clicked", { variant, text }),
+    );
     location.href = "/ai";
   },
   className = "",

@@ -1,11 +1,12 @@
 import { PostHog } from "posthog-node";
+import { PALANTIR_HOST, PALANTIR_KEY } from "./palantir-config";
 
 let posthogClient: PostHog | null = null;
 
 export function getPostHogClient() {
   if (!posthogClient) {
-    posthogClient = new PostHog(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+    posthogClient = new PostHog(PALANTIR_KEY, {
+      host: PALANTIR_HOST,
       flushAt: 1,
       flushInterval: 0,
     });

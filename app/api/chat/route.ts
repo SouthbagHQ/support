@@ -51,15 +51,20 @@ export async function POST(req: Request) {
 
   // Track AI chat request server-side
   const posthog = getPostHogClient();
+  // The browser's distinct id keeps this on the same person (and replay) as the click;
+  // a signed-in Service Table account is identified by its user id, never its username.
   const distinctId =
     req.headers.get("x-posthog-distinct-id") ||
-    session?.user?.username ||
+    session?.user?.id ||
     ip ||
     "anonymous";
+  const sessionId = req.headers.get("x-posthog-session-id") || undefined;
   posthog.capture({
     distinctId: distinctId,
     event: "ai_chat_request",
     properties: {
+      $session_id: sessionId,
+      southbag_app: "support",
       message_count: messages.length,
       is_authenticated: !!session?.user,
       country: ipInfo?.country,

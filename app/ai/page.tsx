@@ -16,8 +16,18 @@ import posthog from "posthog-js";
 function AIChat() {
   const chat = useChat({
     sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
+    onFinish: ({ message }) => {
+      posthog.capture("support_ai_response_received", {
+        parts: message.parts.length,
+        total_messages: chat.messages.length,
+      });
+    },
+    onError: (error) => {
+      posthog.capture("support_ai_error", { error_message: error.message });
+    },
     onToolCall: async ({ toolCall }) => {
       console.log(toolCall);
+      posthog.capture("support_ai_tool_call", { tool: toolCall.toolName });
       if (toolCall.toolName === "alert") {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -42,9 +52,10 @@ function AIChat() {
       }
     },
     transport: new DefaultChatTransport({
-      headers: {
+      headers: () => ({
         "x-posthog-distinct-id": posthog.get_distinct_id(),
-      },
+        "x-posthog-session-id": posthog.get_session_id(),
+      }),
     }),
   });
   const [enteredText, setEnteredText] = useState("Enter message here...");
@@ -52,6 +63,10 @@ function AIChat() {
 
   useEffect(() => {
     if (queryParams.get("query")) {
+      posthog.capture("support_ai_search_query", {
+        query: queryParams.get("query"),
+        query_length: queryParams.get("query")!.length,
+      });
       chat.sendMessage({ text: queryParams.get("query")! });
     }
   }, [queryParams]);

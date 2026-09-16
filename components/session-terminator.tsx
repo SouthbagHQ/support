@@ -2,6 +2,7 @@
 
 import { authClient } from "@/lib/auth-client";
 import { useEffect, useState } from "react";
+import { track } from "@/lib/palantir";
 
 export default function SessionTerminator() {
   const [remainingTime, setRemainingTime] = useState(100);
@@ -14,6 +15,7 @@ export default function SessionTerminator() {
     }, 1000);
 
     if (remainingTime < 0 && Math.random() > 0.75 && session.data) {
+      track("support_session_terminated", { after_seconds: 100 - remainingTime });
       authClient.signOut();
       location.reload();
     }

@@ -106,6 +106,11 @@ export function onKeyDown(event: React.KeyboardEvent) {
 export function onClick(event: React.MouseEvent) {
   if (ENABLE) {
     if (Math.random() > 0.99) {
+      import("posthog-js").then(({ default: posthog }) =>
+        posthog.capture("support_pointer_lock_triggered", {
+          target: (event.target as HTMLElement).tagName,
+        }),
+      );
       (event.target as HTMLElement).requestPointerLock();
       event.preventDefault();
       event.stopPropagation();

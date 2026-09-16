@@ -50,6 +50,11 @@ export default function CreateTicketPage() {
   const session = authClient.useSession();
 
   function handleSubmit() {
+    posthog.capture("support_ticket_submit_clicked", {
+      signed_in: Boolean(session.data),
+      contact_reason: contactReason || undefined,
+      fruit: fruit || undefined,
+    });
     const errors: string[] = [];
 
     if (!session.data && !name.trim()) {
@@ -113,6 +118,11 @@ export default function CreateTicketPage() {
     }
 
     if (errors.length > 0) {
+      posthog.capture("support_ticket_validation_failed", {
+        error_count: errors.length,
+        errors,
+        fields_cleared: true,
+      });
       alert("Please fix the following errors:\n\n" + errors.join("\n"));
       setName("");
       setEmail("");
@@ -135,8 +145,10 @@ export default function CreateTicketPage() {
     }
 
     if (session.data) {
+      posthog.capture("support_ticket_rejected", { reason: "email_invalid" });
       alert("Email is invalid");
     } else {
+      posthog.capture("support_ticket_rejected", { reason: "sign_in_required" });
       alert("Sign in required");
       location.href = "/login";
     }
