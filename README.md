@@ -1,5 +1,5 @@
-# [Service Table](https://servicetable.ingo.au/)
-[servicetable.ingo.au](https://servicetable.ingo.au/)
+# [Service Table](https://support.southbag.cc/)
+[support.southbag.cc](https://support.southbag.cc/)
 
 This is a joke service desk webapp, made to be very not user friendly
 
@@ -82,4 +82,4 @@ Storing passwords plaintext improves performance as it eliminates the need for e
 * I probably won't look in the database and leak your password
 * One factor authentication
 
-# [Continue](https://servicetable.ingo.au/)
+# [Continue](https://support.southbag.cc/)
